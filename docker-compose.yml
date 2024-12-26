@@ -1,0 +1,29 @@
+services:
+  todo.app:
+    build:
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app
+    working_dir: /app
+    ports:
+      - "80:80"
+    command: php -S 0.0.0.0:80 -t /app
+
+  pgsql:
+    image: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    # or set shared memory limit when deploy via swarm stack
+    #volumes:
+    #  - type: tmpfs
+    #    target: /dev/shm
+    #    tmpfs:
+    #      size: 134217728 # 128*2^20 bytes = 128Mb
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: todo_db
+      POSTGRES_USER: todo_db
+      PGPASSWORD: example

@@ -1,0 +1,20 @@
+{
+  "name": "vendor_name/todo-app",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "rustam",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "ext-pgsql": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  }
+}
