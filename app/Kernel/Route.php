@@ -42,7 +42,7 @@ class Route
             $controller = new $controller();
             $controller->{$action}();
         } else {
-            echo view('404', ['name' => '404']);
+            echo view('404', ['name' => 'Страница не найдена']);
         }
     }
 }
