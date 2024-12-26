@@ -34,6 +34,7 @@ class Route
         ];
     }
 
+    // Коммент
     public static function run(string $method, string $uri): void
     {
         if (array_key_exists($method, self::$routes) && array_key_exists($uri, self::$routes[$method])) {
